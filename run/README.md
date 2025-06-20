@@ -55,7 +55,17 @@ the provided kernel image is built from https://github.com/aixcc-public/challeng
 
 ---
 
-## 5. Files in this Directory
+## 6. Running a Test File and Viewing Output
+
+This repo includes a test file called `kernel_syscall_test` and a input for this file `sockopt_input.bin`
+After launching the VM, navigate to `./workdir/` where you will find these files, then run `./kernel_syscall_test sockopt_input.bin`
+The symbolic mode will then start. The system might lock up, so you need to open another terminal to view the generated files.
+In another terminal, run `docker ps` to get the container ID, then run `docker exec -it <container ID> /bin/bash` to mount to the running container with another shell.
+In the main directory you will see a new folder `./output` which contains all of the temporary files (such as new branch finding inputs). Use a program like xxd to view these files.
+
+---
+
+## 7. Files in this Directory
 
 - `Dockerfile`: Docker build instructions for the required environment.
 - `launch.sh`: Script to launch the Docker container with correct mounts.

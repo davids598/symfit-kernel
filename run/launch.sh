@@ -5,11 +5,13 @@
 # lightweight env for running symfit
 # map local folders and compile
 DKIMG="system-mode-sym"
+HOST_OUTPUT="$(pwd)/../output"
 # DKIMG="sym_dev"
 
 docker run --rm -ti --ulimit core=0 \
 	    -e "SYMCC_MEMORY_INPUT=1" \
             -v $PWD/..:/workdir        \
+	    -v "$HOST_OUTPUT":/tmp/output \
             $DKIMG \
 	    /bin/bash -lc "\
 	    set -eux; \
