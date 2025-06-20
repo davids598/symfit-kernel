@@ -62,6 +62,7 @@ After launching the VM, navigate to `./workdir/` where you will find these files
 The symbolic mode will then start. The system might lock up, so you need to open another terminal to view the generated files.
 In another terminal, run `docker ps` to get the container ID, then run `docker exec -it <container ID> /bin/bash` to mount to the running container with another shell.
 In the main directory you will see a new folder `./output` which contains all of the temporary files (such as new branch finding inputs). Use a program like xxd to view these files.
+If the system locks up, you can stop the run by running `docker stop <container ID>`. 
 
 ---
 
