@@ -25,6 +25,9 @@
     -name virtme-ng -m 1G \
     -fsdev local,id=virtfs5,path=/,security_model=none,readonly=on,multidevs=remap \
     -device virtio-9p-pci,fsdev=virtfs5,mount_tag=/dev/root \
+    # expose /tmp/output from the container to the VM as tag "vmshare"
+    -fsdev local,id=virtfs_shared,path=/tmp/output,security_model=none,multidevs=remap \
+    -device virtio-9p-pci,fsdev=virtfs_shared,mount_tag=vmshare \
     -device i6300esb,id=watchdog0 -machine q35 -parallel none -net none \
     -echr 1 -chardev file,path=/proc/self/fd/2,id=dmesg \
     -device virtio-serial-pci -device virtconsole,chardev=dmesg \
