@@ -16,13 +16,13 @@ This will create a Docker image named `system-mode-sym` with all necessary depen
 
 ## 2. Launching the Docker Environment
 
-To start a container with the built image and the required volume mappings, use the `launch.sh` script:
+To start a container with the built image and the required volume mappings, use the `launch.sh` script from this directory:
 
 ```sh
 ./launch.sh
 ```
 
-This script mounts the current directory and the challenge source directory into the container and opens an interactive shell.
+This script mounts the main directory and the challenge source directory into the container, installs some programs, and opens an interactive shell.
 
 ---
 
@@ -43,7 +43,7 @@ Inside the Docker container, run the `compile.sh` script to build the kernel:
 
 ## 4. Running the Kernel in QEMU
 
-Use the `run_vng.sh` script to launch the built kernel in QEMU with the appropriate options:
+Use the `run_vng.sh` script to launch the built kernel in QEMU with the appropriate options(again from this directory):
 
 ```sh
 ./run_vng.sh
