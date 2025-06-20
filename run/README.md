@@ -24,6 +24,14 @@ To start a container with the built image and the required volume mappings, use 
 
 This script mounts the main directory and the challenge source directory into the container, installs some programs, and opens an interactive shell.
 
+Files created in `../vm_shared` on the host are available inside the container at
+`/tmp/output`.  The VM started by `run_vng.sh` exposes this directory as a 9p
+share using the tag `vmshare`.  Inside the VM you can mount it with:
+
+```sh
+mount -t 9p -o trans=virtio,version=9p2000.L vmshare /tmp/output
+```
+
 ---
 
 ## 3. Compiling the Kernel
